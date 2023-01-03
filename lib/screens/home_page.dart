@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app_flutter/screens/add_task_page.dart';
 import 'package:todo_app_flutter/theme.dart';
+import 'package:todo_app_flutter/todo_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
+        child: ListView(
           children: const [
             Text(
               "What's up, Nilay!",
@@ -50,7 +52,35 @@ class HomePage extends StatelessWidget {
                 fontWeight: FontWeight.w800,
               ),
             ),
+            SizedBox(
+              height: 25,
+            ),
+            Text(
+              'TODAY\'S TASK',
+              style: TextStyle(
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+                color: grey,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TodoTile(),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AddTaskPage(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.add_rounded,
+          size: 30.0,
         ),
       ),
     );
