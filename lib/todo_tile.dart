@@ -30,7 +30,9 @@ class TodoTile extends StatelessWidget {
               style: TextStyle(color: blackAccent, fontSize: 20.0),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                print("delete");
+              },
               icon: const Icon(
                 Icons.delete_rounded,
                 color: grey,
